@@ -1,13 +1,23 @@
-const Contact = ({ contactsList }) => {
-  // const {id, name, number } = contactsList
-  return <li>gggg</li>;
-
-  //   ({contactsList.map(contact => {
-  //     <li key={contact.id}>
-  //       <h2>{contact.name}</h2>
-  //       <p>{contact.number}</p>
-  //     </li>;
-  //   });)
+const Contact = ({ item, onDelete }) => {
+  const { name, number, id } = item;
+  return (
+    <>
+      <li>
+        <h2>{name}</h2>
+        <p>{number}</p>
+        <button onClick={() => onDelete(id)}>Delete</button>
+      </li>
+    </>
+  );
 };
 
 export default Contact;
+
+{
+  /* {contactsList.map(({ id, name, number }) => (
+  <li key={id}>
+    <h2>{name}</h2>
+    <p>{number}</p>
+  </li>
+))} */
+}
