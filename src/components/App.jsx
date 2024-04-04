@@ -8,16 +8,28 @@ import contactsData from '../components/contacts.json';
 
 function App() {
   const [contactsList, setContacts] = useState(contactsData);
+  const [searchInput, setSearchInput] = useState('');
 
   const handleDelete = id => {
     setContacts(prev => prev.filter(item => item.id !== id));
   };
+
+  const getFilteredData = () => {
+    return contactsList.filter(
+      item =>
+        item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+        item.number.includes(searchInput)
+    );
+  };
+
+  const filteredData = getFilteredData();
+
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm />
-      <SearchBox />
-      <ContactList contactsList={contactsList} onDelete={handleDelete} />
+      <SearchBox searchInput={searchInput} setSearchInput={setSearchInput} />
+      <ContactList contactsList={filteredData} onDelete={handleDelete} />
     </div>
   );
 }
