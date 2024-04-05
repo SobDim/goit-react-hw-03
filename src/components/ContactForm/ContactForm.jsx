@@ -1,9 +1,15 @@
 import { Field, Form, Formik } from 'formik';
+import { nanoid } from 'nanoid';
 
 const ContactForm = () => {
+  const initialValues = { name: '', number: '' };
+  const handleSubmit = (data, options) => {
+    console.log({ ...data, id: nanoid() });
+    options.resetForm();
+  };
   return (
     <div>
-      <Formik>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
           <label>
             name
