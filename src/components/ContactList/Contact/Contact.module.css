@@ -1,4 +1,4 @@
-li {
+.li_wrapper {
     border: 2px solid dimgray;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -6,7 +6,6 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 
     div {
         text-align: left;
@@ -22,4 +21,5 @@ li {
         height: fit-content;
 
     }
+
 }

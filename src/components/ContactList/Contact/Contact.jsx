@@ -6,7 +6,7 @@ const Contact = ({ item, onDelete }) => {
   const { name, number, id } = item;
   return (
     <>
-      <li>
+      <li className={s.li_wrapper}>
         <div>
           <h3>
             <IoPerson />
