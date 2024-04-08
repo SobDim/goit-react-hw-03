@@ -1,21 +1,25 @@
 import { FaPhone } from 'react-icons/fa6';
 import { IoPerson } from 'react-icons/io5';
+import s from './Contact.module.css';
 
 const Contact = ({ item, onDelete }) => {
   const { name, number, id } = item;
   return (
     <>
       <li>
-        <h2>
-          <IoPerson />
-          {name}
-        </h2>
-        <p>
-          <a href={`tel:+${number}`}>
-            <FaPhone />
-            {number}
-          </a>
-        </p>
+        <div>
+          <h3>
+            <IoPerson />
+            {name}
+          </h3>
+          <p>
+            <a href={`tel:+${number}`}>
+              <FaPhone />
+              {number}
+            </a>
+          </p>
+        </div>
+
         <button onClick={() => onDelete(id)}>Delete</button>
       </li>
     </>
